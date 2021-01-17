@@ -46,7 +46,7 @@ jobs:
           username: ${{secrets.DOCKER_USER_NAME}}
           password: ${{secrets.DOCKER_PASSWORD}} 
           repository: xrouterserviceexplorer/blocknetwallet.api
-          dockerfile: ./BlocknetWallet.Api/Dockerfile
+          dockerfile: ./Dockerfile
           tags: ${{ github.sha }}
           
       - name: Find and Replace deployment manifest
@@ -60,4 +60,4 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: -n luciendev apply -f ./BlocknetWallet.Api/deployment.yml
+          args: -n luciendev apply -f ./deployment.yml
